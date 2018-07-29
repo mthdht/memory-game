@@ -9,3 +9,10 @@ nav ul {
   display: flex;
   align-items: center;
 }
+
+.card {
+  height: 300px;
+  display: flex;
+  align-items: center;
+}
+
