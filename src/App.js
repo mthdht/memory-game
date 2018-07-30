@@ -2,35 +2,35 @@ import React, { Component } from 'react';
 import './App.css';
 import Board from './Board'
 
-const CARDS = [
-    {face: 'red', status: 'hidden'},
-    {face: 'red', status: 'hidden'},
-    {face: 'blue', status: 'hidden'},
-    {face: 'blue', status: 'hidden'},
-    {face: 'orange', status: 'hidden'},
-    {face: 'orange', status: 'hidden'},
-    {face: 'green', status: 'hidden'},
-    {face: 'green', status: 'hidden'},
-    {face: 'brown', status: 'hidden'},
-    {face: 'brown', status: 'hidden'},
-    {face: 'purple', status: 'hidden'},
-    {face: 'purple', status: 'hidden'},
-    {face: 'yellow', status: 'hidden'},
-    {face: 'yellow', status: 'hidden'},
-    {face: 'blue-gray', status: 'hidden'},
-    {face: 'blue-gray', status: 'hidden'},
-    {face: 'teal', status: 'hidden'},
-    {face: 'teal', status: 'hidden'},
-];
+const colors = ["red", "blue", "orange", "green", "brown", "purple", "yellow", "blue-gray", "teal"];
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Board cards={CARDS}/>
-      </div>
-    );
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            colorNumber: 6
+        }
+    }
+
+    shuffle = a => {
+        var j, x, i;
+        for (i = a.length - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * (i + 1));
+            x = a[i];
+            a[i] = a[j];
+            a[j] = x;
+        }
+        return a;
+    };
+
+    render() {
+        const colorsArray = colors.slice(0, this.state.colorNumber);
+        return (
+            <div className="App">
+                <Board colors={this.shuffle(colorsArray.concat(colorsArray))} />
+            </div>
+        );
+    }
 }
 
 export default App;
