@@ -5,10 +5,10 @@ class Board extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            cards: this.generateCards(),
             pairs: [],
             currentPair: []
         };
+        this.cards = this.generateCards()
     }
 
     generateCards() {
@@ -22,15 +22,15 @@ class Board extends Component {
     };
 
     getStatus(index) {
-        const {currentPair, pairs,cards} = this.state;
+        const {currentPair, pairs} = this.state;
 
-        if (currentPair.includes(cards[index]) || pairs.includes(cards[index])) {
+        if (currentPair.includes(this.cards[index]) || pairs.includes(this.cards[index])) {
             return "visible";
         } else return "hidden"
     }
 
     handleCardClick = (index) => {
-        const {cards, currentPair} = this.state;
+        const {currentPair} = this.state;
 
         if (currentPair.length === 2) {
             return;
@@ -38,7 +38,7 @@ class Board extends Component {
 
         if (currentPair.length === 0) {
             this.setState({
-                currentPair: [cards[index]]
+                currentPair: [this.cards[index]]
             });
             return;
         }
@@ -50,8 +50,8 @@ class Board extends Component {
     };
 
     handlePairAttempt(index) {
-        const {cards, currentPair, pairs} = this.state;
-        currentPair.push(cards[index]);
+        const { currentPair, pairs} = this.state;
+        currentPair.push(this.cards[index]);
         this.setState({currentPair});
 
         if (currentPair[0].face === currentPair[1].face && currentPair[0].id !== currentPair[1].id) {
@@ -60,13 +60,13 @@ class Board extends Component {
                 currentPair: []
             });
         } else {
-            setTimeout(() => this.setState({cards, currentPair: []}), 1000);
+            setTimeout(() => this.setState({currentPair: []}), 1000);
         }
     }
 
     render() {
         const cards = [];
-        this.state.cards.forEach((card) => {
+        this.cards.forEach((card) => {
             cards.push(<Card face={card.face} status={this.getStatus(card.id)} index={card.id} key={card.id} handleCardClick={this.handleCardClick}/>);
         });
 
