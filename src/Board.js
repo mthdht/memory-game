@@ -58,6 +58,12 @@ class Board extends Component {
             this.setState({
                 pairs: [...pairs, ...currentPair],
             });
+            setTimeout(() => {
+                if (this.state.pairs.length === this.cards.length) {
+                    alert('vous avez gagné');
+                }
+            }, 1000);
+
         }
 
         setTimeout(() => this.setState({currentPair: []}), 1000);
