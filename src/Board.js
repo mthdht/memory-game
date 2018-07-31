@@ -57,11 +57,11 @@ class Board extends Component {
         if (currentPair[0].face === currentPair[1].face && currentPair[0].id !== currentPair[1].id) {
             this.setState({
                 pairs: [...pairs, ...currentPair],
-                currentPair: []
             });
-        } else {
-            setTimeout(() => this.setState({currentPair: []}), 1000);
         }
+
+        setTimeout(() => this.setState({currentPair: []}), 1000);
+
     }
 
     render() {

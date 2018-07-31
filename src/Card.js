@@ -5,7 +5,7 @@ class Card extends Component {
     handleClick(index) {
         if (this.props.status !== "visible") {
             this.props.handleCardClick(index);
-        } else console.log("already chosen");
+        }
     }
 
     render() {
