@@ -1,5 +1,178 @@
+/* ========== COLORS ============ */
+
+/* theme: Color-theme */
+.ct-dark-blue, .ct-hover-dark-blue:hover {
+    background-color: #133046 !important;
+    color: #FFF !important;
+}
+
+.ct-text-dark-blue, .ct-hover-text-dark-blue:hover {
+    color: #133046 !important;
+}
+
+.ct-blue, .ct-hover-blue:hover {
+    background-color: #15959F !important;
+    color: #FFF !important;
+}
+
+.ct-text-blue, .ct-hover-text-blue:hover {
+    color: #15959F !important;
+}
+
+.ct-camel-light {
+    background-color: #F1E4B3 !important;
+}
+
+.ct-text-camel-light {
+    color: #F1E4B3 !important;
+}
+
+.ct-pink, .ct-hover-pink:hover {
+    background-color: #EC9770 !important;
+    color: #FFFFFF !important;
+}
+
+.ct-text-pink, .ct-hover-text-pink:hover {
+    color: #EC9770 !important;
+}
+
+.ct-red, .ct-hover-red:hover {
+    background-color: #C7402D !important;
+    color: #FFFFFF !important;
+}
+
+.ct-text-red, .ct-hover-text-red:hover {
+    color: #C7402D !important;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .card {
-  height: 300px;
-  display: flex;
-  align-items: center;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.card-container {
+    padding: 5px;
+}
+
+.facile {
+    width: calc(100% / 6);
+}
+
+.facile .card {
+    min-height: 200px;
+}
+
+.moyen {
+    width: calc(100% / 6);
+}
+
+.moyen .card {
+    min-height: 150px;
+}
+
+.difficile {
+    width: calc(100% / 6);
+}
+
+.difficile .card {
+    min-height: 100px;
+}
+
+.expert {
+    width: calc(100% / 6);
+}
+
+.expert .card {
+    min-height: 80px;
+}
+
+div.card[class*="w3-"] img {
+    display: none;
+}
+div.card[class*="w3-gray"] img {
+    display: block;
+}
+
+.sidebar {
+    display:none;
+    z-index: 10;
+}
+
+.pointer {
+    cursor:pointer;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.level::first-letter {
+    text-transform: capitalize;
+}
+
+@media (min-width: 768px) {
+    .card-container {
+        padding: 10px;
+    }
+
+    .facile {
+        width: calc(100% / 6);
+    }
+
+    .facile .card {
+        min-height: 300px;
+    }
+
+    .moyen {
+        width: calc(100% / 6);
+    }
+
+    .moyen .card {
+        min-height: 250px;
+    }
+
+    .difficile {
+        width: calc(100% / 8);
+    }
+
+    .difficile .card {
+        min-height: 250px;
+    }
+
+    .expert {
+        width: calc(100% / 10);
+    }
+
+    .expert .card {
+        min-height: 250px;
+    }
+}
+
+@media (min-width: 992px) {
+    .card-container {
+        padding: 15px;
+    }
+
+    .facile .card {
+        min-height: 250px;
+    }
+
+    .moyen .card, .difficile .card, .expert .card {
+        min-height: 200px;
+    }
+
 }

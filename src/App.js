@@ -1,33 +1,65 @@
 import React, { Component } from 'react';
 import './App.css';
+import Header from './Header'
 import Board from './Board'
-
-const colors = ["red", "blue", "orange", "green", "brown", "purple", "yellow", "blue-gray", "teal"];
+import Scores from './Scores'
+import Ranking from './Ranking'
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            colorNumber: 6
-        }
+            userScores: [],
+            ranking: [],
+        };
+
+        this.renderScores = this.renderScores.bind(this);
+        this.renderRanking = this.renderRanking.bind(this);
     }
 
-    shuffle = a => {
-        var j, x, i;
-        for (i = a.length - 1; i > 0; i--) {
-            j = Math.floor(Math.random() * (i + 1));
-            x = a[i];
-            a[i] = a[j];
-            a[j] = x;
-        }
-        return a;
-    };
+    renderScores() {
+        // this use my portfolio api: see matthieu-dehondt.fr
+
+        /*axios.get('/jeu/memory/user-scores')
+            .then((response) => {
+                this.setState({
+                    userScores: response.data
+                });
+                document.getElementById('scores-modal').style.display = 'block';
+            })
+            .catch(function (error) {
+                console.log(error);
+            });*/
+    }
+
+    renderRanking() {
+        // this use my portfolio api: see matthieu-dehondt.fr
+
+        /*axios.get('/jeu/memory/ranking')
+            .then((response) => {
+                this.setState({
+                    ranking: response.data
+                });
+                document.getElementById('ranking-modal').style.display = 'block';
+            })
+            .catch(function (error) {
+                console.log(error);
+            });*/
+    }
 
     render() {
-        const colorsArray = colors.slice(0, this.state.colorNumber);
+        const scores = this.state.userScores;
+        const ranking = this.state.ranking
         return (
             <div className="App">
-                <Board colors={this.shuffle(colorsArray.concat(colorsArray))} />
+                <Header renderScores={this.renderScores} renderRanking={this.renderRanking}/>
+                <div className="w3-main">
+                    {/*
+                    // this use my portfolio api: see matthieu-dehondt.fr
+                    <Scores scores={scores}/>
+                    <Ranking scores={ranking}/>*/}
+                    <Board/>
+                </div>
             </div>
         );
     }
