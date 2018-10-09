@@ -19,7 +19,7 @@ class Header extends Component {
                     <div className="w3-sidebar sidebar w3-bar-block w3-border-right w3-text-white ct-dark-blue" id="mySidebar">
                         <button onClick={this.close}
                                 className="w3-bar-item w3-button w3-large w3-text-white">Close &times;</button>
-                        <a href={"https://fr.wikipedia.org/wiki/Le_Pendu_(jeu)"} className="w3-bar-item w3-button">Règles</a>
+                        <a href={"https://fr.wikipedia.org/wiki/Memory_(jeu)"} className="w3-bar-item w3-button">Règles</a>
                     </div>
 
                     <div className="w3-content w3-center nav">
@@ -36,7 +36,7 @@ class Header extends Component {
                         </a>
 
                         <div className="w3-right w3-padding-16 w3-hide-small">
-                            <a href={"https://fr.wikipedia.org/wiki/Le_Pendu_(jeu)"} className="w3-bar-item w3-large ct-dark-blue ct-hover-blue"><b>Règles</b></a>
+                            <a href={"https://fr.wikipedia.org/wiki/Memory_(jeu)"} className="w3-bar-item w3-large ct-dark-blue ct-hover-blue"><b>Règles</b></a>
                         </div>
                     </div>
                 </nav>
